@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:weightSum="20"
+    tools:context=".packageChooser.PackageListActivity"
+    android:padding="24dip">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/id_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Package identifier:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/id_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_marginBottom="7dp">
+
+        <TextView
+            android:id="@+id/weight_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Weight:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/weight_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/height_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Height:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/height_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/length_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Length:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/length_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/width_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Width:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/width_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pickup_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Pickup address:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/pickup_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/destination_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Destination address:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/destination_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/reward_label_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            tools:text="Reward:"
+            tools:ignore="NestedWeights" />
+
+        <TextView
+            android:id="@+id/reward_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_marginStart="0dp"
+            android:gravity="end"
+            android:layout_marginTop="0dp"
+            tools:text="10 kg" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

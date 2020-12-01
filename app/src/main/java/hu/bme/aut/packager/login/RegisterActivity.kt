@@ -9,13 +9,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import hu.bme.aut.packager.R
+import hu.bme.aut.packager.data.DatabaseAccess
 import hu.bme.aut.packager.data.User
 import kotlinx.android.synthetic.main.activity_register.*
 
 
 class RegisterActivity : AppCompatActivity() {
-
-    private val obj = MutableLiveData<User>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +22,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // MUKODIK, DE A LIVEOBJECTTEL VAN PROBLEMA, SOKSZOR HIVODIK MEG, DE EBBEN ARONDA FORMABAN MUKODIK
+
         btnSignUp.setOnClickListener{
 
             if(etName.text.toString().isEmpty()){
@@ -47,12 +46,12 @@ class RegisterActivity : AppCompatActivity() {
                 var user: User? = null
 
                 Thread{
-                    user = LoginActivity.usersDatabase.UserDao().getUserByEmail(etEmailAddress.text.toString())
+                    user =  DatabaseAccess.usersDatabase.UserDao().getUserByEmail(etEmailAddress.text.toString())
 
                     if(user  == null) {
 
                         val newUser = User(null, etName.text.toString(), etEmailAddress.text.toString(), etAddress.text.toString(), etPassword.text.toString(), etPhone.text.toString(), 0)
-                        LoginActivity.usersDatabase.UserDao().insert(newUser)
+                         DatabaseAccess.usersDatabase.UserDao().insert(newUser)
 
                         LoginActivity.email = etEmailAddress.text.toString()
                         LoginActivity.password = etPassword.text.toString()
@@ -61,18 +60,15 @@ class RegisterActivity : AppCompatActivity() {
                         finish()
                     }
                     else {
-                        obj.postValue(user)
+                        runOnUiThread{
+                            Snackbar.make(btnSignUp,"Fill all input with valid information", 5000).show()
+                            etEmailAddress.requestFocus()
+                            etEmailAddress.error="This email is already in use"
+                        }
                     }
-
+                    
                 }.start()
 
-                obj.observe(this, Observer {
-
-                    Snackbar.make(btnSignUp,"Fill all input with valid information", 5000).show()
-                    etEmailAddress.requestFocus()
-                    etEmailAddress.error="This email is already in use"
-
-                })
 
             }
         }

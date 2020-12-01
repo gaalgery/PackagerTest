@@ -8,7 +8,7 @@ interface UserDao {
     fun getAll(): List<User>
 
     @Query("SELECT * FROM users WHERE id = :id_searched")
-    fun getUser(id_searched: Long): User
+    fun getUser(id_searched: Long?): User
 
     @Query("SELECT password FROM users WHERE email = :email")
     fun getPassword(email: String): String

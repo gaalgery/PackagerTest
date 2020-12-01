@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dip"
-                android:text="@string/height"/>
+                android:text="@string/height_cm"/>
 
             <EditText
                 android:id="@+id/HeightEditText"
@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dip"
-                android:text="Width"/>
+                android:text="@string/width_cm"/>
 
             <EditText
                 android:id="@+id/WidthEditText"
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dip"
-                android:text="@string/length"/>
+                android:text="@string/length_cm"/>
 
             <EditText
                 android:id="@+id/LengthEditText"

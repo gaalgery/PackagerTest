@@ -16,39 +16,6 @@ public data class Package(
         @ColumnInfo(name = "height") val height: Long,
         @ColumnInfo(name = "length") val length: Long,
         @ColumnInfo(name = "width") val width: Long,
-        @ColumnInfo(name = "toID") val toID: Long?) {
-
-    enum class Carrier {
-        BIKE, CAR, TRAILER, TRUCK;
-        companion object {
-            @JvmStatic
-            @TypeConverter
-            fun getByOrdinal(ordinal: Int): Carrier? {
-                return values().find{it.ordinal == ordinal}
-            }
-
-            @JvmStatic
-            @TypeConverter
-            fun toInt(carrier: Carrier): Int {
-                return carrier.ordinal
-            }
-        }
-    }
-
-    enum class State {
-        Waiting, PickedUp, Undertaken, Delivered;
-        companion object {
-            @JvmStatic
-            @TypeConverter
-            fun getByOrdinal(ordinal: Int): State? {
-                return values().find{it.ordinal == ordinal}
-            }
-
-            @JvmStatic
-            @TypeConverter
-            fun toInt(state: State): Int {
-                return state.ordinal
-            }
-        }
-    }
+        @ColumnInfo(name = "toID") val toID: Long?,
+        @ColumnInfo(name = "courierID") val courierID: Long?) {
 }

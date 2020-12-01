@@ -19,6 +19,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.lifecycle.MutableLiveData
+import hu.bme.aut.packager.DatatTransformer.NewPackage
 import hu.bme.aut.packager.data.User
 import hu.bme.aut.packager.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -27,10 +28,8 @@ import kotlinx.android.synthetic.main.activity_login.*
 class NewPackageDialog :  DialogFragment(){
 
     interface NewPackageDialogListener {
-        fun onPackageCreated(newItem: Package)
+        fun onPackageCreated(newItem: NewPackage)
     }
-
-    private val obj = MutableLiveData<Boolean>()
 
     private lateinit var weight: EditText
     private lateinit var height: EditText
@@ -40,7 +39,6 @@ class NewPackageDialog :  DialogFragment(){
     private lateinit var toEmail: EditText
     private lateinit var carrier: Spinner
 
-    private var destinationUser: User? = null
     private lateinit var listener: NewPackageDialogListener
 
     override fun onAttach(context: Context) {
@@ -57,7 +55,7 @@ class NewPackageDialog :  DialogFragment(){
                 .setNegativeButton("Dismiss", null)
                 .setPositiveButton("Save") { dialogInterface, i ->
                     if (isValid()) {
-                        listener.onPackageCreated(getPackage());
+                        listener.onPackageCreated(getNewPackage());
                     }
                 }
                 .create()
@@ -88,13 +86,11 @@ class NewPackageDialog :  DialogFragment(){
                         resources.getStringArray(R.array.carrier_items)
                 )
         )
-        Thread{
-            destinationUser = LoginActivity.usersDatabase.UserDao().getUserByEmail(toEmail.text.toString())
-        }.start()
+
         return contentView
     }
 
-    private fun getPackage() = hu.bme.aut.packager.data.Package(
+    private fun getNewPackage() = NewPackage(
 
             id = null,
             weight = try {
@@ -107,8 +103,8 @@ class NewPackageDialog :  DialogFragment(){
             } catch (e: java.lang.NumberFormatException) {
                 0
             },
-            carrier = hu.bme.aut.packager.data.Package.Carrier.getByOrdinal(carrier.selectedItemPosition) ?: hu.bme.aut.packager.data.Package.Carrier.CAR,
-            state = hu.bme.aut.packager.data.Package.State.Waiting,
+            carrier = hu.bme.aut.packager.data.Carrier.getByOrdinal(carrier.selectedItemPosition) ?: hu.bme.aut.packager.data.Carrier.CAR,
+            state = hu.bme.aut.packager.data.State.Waiting,
             fromID = LoginActivity.loggedInUserID,
 
             height = try {
@@ -126,7 +122,7 @@ class NewPackageDialog :  DialogFragment(){
             } catch (e: java.lang.NumberFormatException) {
                 0
             },
-            toID = destinationUser?.id
+            toEmail = toEmail.text.toString()
     )
 
 }

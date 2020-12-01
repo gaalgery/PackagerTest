@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Packager">
+        <activity android:name=".userAccount.fragments.ssActivity"></activity>
+        <activity
+            android:name=".userAccount.UserAccountActivity"
+            android:label="@string/title_activity_user_account"
+            android:theme="@style/Theme.Packager.NoActionBar" />
         <activity
             android:name=".packageChooser.PackageListActivity"
             android:label="@string/title_activity_package_list"
-            android:theme="@style/Theme.Packager.NoActionBar"></activity>
+            android:theme="@style/Theme.Packager.NoActionBar" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>

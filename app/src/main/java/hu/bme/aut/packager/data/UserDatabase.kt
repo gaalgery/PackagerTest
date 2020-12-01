@@ -5,8 +5,8 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 
-@Database(entities = [User::class, Package::class], version = 5)
-@TypeConverters(value = [Package.State::class, Package.Carrier::class])
+@Database(entities = [User::class, Package::class], version = 7)
+@TypeConverters(value = [State::class, Carrier::class])
 abstract class UserDatabase : RoomDatabase() {
     abstract fun UserDao(): UserDao
     abstract fun PackageDao(): PackageDao
